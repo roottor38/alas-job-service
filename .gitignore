@@ -1,0 +1,28 @@
+# compiled output
+/out
+/target
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.iml
+eclipse-launch-profiles
+.mvn
+
+# log
+logs
+
+#System Files
+*~
+.DS_Store
+Thumbs.db
+
+/local-test-dir
+
+build/
+
+.gradle/

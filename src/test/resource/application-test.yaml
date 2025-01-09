@@ -1,0 +1,21 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /job-api
+
+spring:
+  profiles:
+    active: test
+  application:
+    name: alas-job-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: secret
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  sql:
+    init:
+      encoding: UTF-8

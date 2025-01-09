@@ -1,0 +1,2 @@
+INSERT INTO public.assistant (used_yn, created_at, updated_at, updated_by, uuid, created_by, description) VALUES (true, DEFAULT, DEFAULT, 'sytem', 'c3c32670-45b6-4dc7-a29d-9f46a47141f2', 'system', '지그재그 차선을 자동으로 찾아주는 기능');
+INSERT INTO public.assistant (used_yn, created_at, updated_at, updated_by, uuid, created_by, description) VALUES (true, DEFAULT, DEFAULT, 'sytem', 'e95c42e6-12d9-45c4-b337-a59817c3e7df', 'system', '정지 표지판 영역 추출');
