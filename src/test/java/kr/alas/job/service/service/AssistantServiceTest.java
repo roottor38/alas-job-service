@@ -29,10 +29,8 @@ public class AssistantServiceTest {
 //        given(assistantRepo.findByUuid(uuid)).willReturn(Assistant.builder().uuid(uuid).build());
 
         // when
-        Assistant assistant = assistantService.getAssistant(uuid);
 
         // then
-        assertThat(assistant.getUuid()).isEqualTo(uuid);
     }
 
 }

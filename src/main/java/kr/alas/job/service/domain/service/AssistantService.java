@@ -2,6 +2,8 @@ package kr.alas.job.service.domain.service;
 
 import jakarta.transaction.Transactional;
 import kr.alas.job.service.common.component.KafkaProducer;
+import kr.alas.job.service.common.exception.CustomException;
+import kr.alas.job.service.common.exception.ErrorSpec;
 import kr.alas.job.service.common.model.PageParam;
 import kr.alas.job.service.domain.entity.Assistant;
 import kr.alas.job.service.domain.model.AssistantModel;
@@ -29,15 +31,12 @@ public class AssistantService implements FilterSpecification{
         return assistantRepo.findAll(spec, result);
     }
 
-    public Assistant getAssistant(String uuid) {
-        return assistantRepo.findByUuid(uuid);
-    }
-
     public AssistantModel.Res runAssistant(final AssistantModel.Req req) {
         //TODO : run assistant
         log.info("start assistant : {}", req);
 
-        Assistant assistant = assistantRepo.findByUuid(req.getUuid());
+        Assistant assistant = assistantRepo.findByUuid(req.getUuid()).orElseThrow(() -> CustomException.of(
+            ErrorSpec.ERROR_SPEC_Invalid_Parameter, "잘못된 Assistant UUID 입니다."));
         AssistantWorkHistModel hist = AssistantWorkHistModel.of(assistant);
         AssistantModel.Res res =  AssistantModel.Res.of(assistant);
 

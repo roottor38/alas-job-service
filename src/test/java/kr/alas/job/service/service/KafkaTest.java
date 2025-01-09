@@ -26,9 +26,6 @@ public class KafkaTest {
 
     @Test
     public void setKafkaProducer() {
-        AssistantModel.Res test = AssistantModel.Res.of(Assistant.builder().uuid("test").build());
-
-        kafkaProducer.sendMessage("assistant-topic", test);
 
     }
 

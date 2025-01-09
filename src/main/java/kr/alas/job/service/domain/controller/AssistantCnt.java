@@ -27,11 +27,6 @@ public class AssistantCnt {
     private final AssistantService assistantService;
 
     @Operation(summary = "Assistant 목록 조회", description = "사용가능 Assistant 목록을 조회합니다.")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "api 호출 성공",
-            content = @Content(mediaType = "application/json")),
-        @ApiResponse(responseCode = "400", description = "api 호출 실패")
-    })
     @GetMapping("/page")
     public CommonResponse<List<AssistantModel.ResPage>> getPage() {
         Page<Assistant> result = assistantService.getPage();
@@ -40,12 +35,7 @@ public class AssistantCnt {
             .collect(Collectors.toList()), result.getTotalElements());
     }
 
-    @Operation(summary = "Assistant 목록 조회", description = "사용가능 Assistant 목록을 조회합니다.")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "api 호출 성공",
-            content = @Content(mediaType = "application/json")),
-        @ApiResponse(responseCode = "400", description = "api 호출 실패")
-    })
+    @Operation(summary = "Assistant 작업 실행", description = "Assistant 작업을 실행합니다.")
     @PostMapping("/run")
     public CommonResponse<AssistantModel.Res> runAssistant(@RequestBody AssistantModel.Req req) {
         return CommonResponse.of(assistantService.runAssistant(req));

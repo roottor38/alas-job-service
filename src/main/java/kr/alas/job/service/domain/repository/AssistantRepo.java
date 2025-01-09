@@ -1,5 +1,6 @@
 package kr.alas.job.service.domain.repository;
 
+import java.util.Optional;
 import kr.alas.job.service.domain.entity.Assistant;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +13,6 @@ public interface AssistantRepo extends JpaRepository<Assistant, String> {
 
     Page<Assistant> findAll(Specification<Assistant> spec, Pageable pageable);
 
-    Assistant findByUuid(String uuid);
+    Optional<Assistant> findByUuid(String uuid);
 
 }
